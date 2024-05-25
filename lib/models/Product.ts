@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 
 const ProductSchema = new mongoose.Schema({
-  name: String,
-  title: String,
+  name: { type: String, required: true, unique: true },
+  title: {type: String, required: true},
   collections: [{ type: mongoose.Schema.Types.ObjectId, ref: "Collection" }],
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
