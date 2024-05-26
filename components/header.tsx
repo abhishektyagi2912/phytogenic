@@ -32,8 +32,6 @@ const Header = () => {
               <NavDropdown.Item href="#feature2">Feature 2</NavDropdown.Item>
               <NavDropdown.Item href="#feature3">Feature 3</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#pricing" className="px-2 link-dark">Pricing</Nav.Link>
-            <Nav.Link href="#faqs" className="px-2 link-dark">FAQs</Nav.Link>
             <Nav.Link href="/about" className="px-2 link-dark">About</Nav.Link>
           </Nav>
         </Navbar.Collapse>
