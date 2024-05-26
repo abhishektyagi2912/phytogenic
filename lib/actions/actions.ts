@@ -17,12 +17,12 @@ export const getProducts = async () => {
   return await products.json();
 };
 
-export const getProductDetails = async (productId: string) => {
-  const product = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/products/${productId}`
-  );
-  return await product.json();
-};
+// export const getProductDetails = async (productId: string) => {
+//   const product = await fetch(
+//     `${process.env.NEXT_PUBLIC_API_URL}/products/${productId}`
+//   );
+//   return await product.json();
+// };
 
 export const getSearchedProducts = async (query: string) => {
   const searchedProducts = await fetch(
@@ -31,16 +31,16 @@ export const getSearchedProducts = async (query: string) => {
   return await searchedProducts.json();
 };
 
-export const getOrders = async (customerId: string) => {
-  const orders = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/orders/customers/${customerId}`
-  );
-  return await orders.json();
-};
+// export const getOrders = async (customerId: string) => {
+//   const orders = await fetch(
+//     `${process.env.NEXT_PUBLIC_API_URL}/orders/customers/${customerId}`
+//   );
+//   return await orders.json();
+// };
 
-export const getRelatedProducts = async (productId: string) => {
-  const relatedProducts = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/products/${productId}/related`
-  );
-  return await relatedProducts.json();
-};
+// export const getRelatedProducts = async (productId: string) => {
+//   const relatedProducts = await fetch(
+//     `${process.env.NEXT_PUBLIC_API_URL}/products/${productId}/related`
+//   );
+//   return await relatedProducts.json();
+// };
