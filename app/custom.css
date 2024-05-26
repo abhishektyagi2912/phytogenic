@@ -1,0 +1,15 @@
+.noUnderline {
+    text-decoration: none !important;
+}
+
+.linkSecondary {
+    color: #6c757d !important;
+}
+
+.linkDark {
+    color: #343a40 !important;
+}
+
+.textDark {
+    color: #343a40 !important;
+}

@@ -1,5 +1,431 @@
-@tailwind base;
-  @tailwind components;
-  @tailwind utilities;
+.top-image {
+  position: relative;
+  background: linear-gradient(to right, #e2f8ed 0%, #e5efff 50%);
+}
+.noUnderline {
+  text-decoration: none !important;
+}
 
- 
+.linkSecondary {
+  color: #6c757d !important;
+}
+
+.linkDark {
+  color: #343a40 !important;
+}
+
+.textDark {
+  color: #343a40 !important;
+}
+.text-content {
+  padding: 20px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+.vh-80 {
+  height: 80vh;
+}
+
+
+.highlight {
+  color: #35a34b;
+}
+
+.first-part {
+  padding: 0px 0;
+}
+
+.img-fluid {
+  margin-bottom: 20px;
+}
+
+.text-content {
+  font-size: 4.8rem;
+  font-weight: 600;
+  padding-top: 15mm;
+  line-height: 20mm;
+
+}
+
+.image-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+.content {
+  font-size: 18px;
+  line-height: 25px;
+  padding-top: 15px;
+  color: rgb(125, 125, 125);
+  font-weight: 300;
+}
+
+.overlay-content h4 {
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+.overlay-content {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  background-color: rgba(27, 105, 74, 0.9);
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.overlay-content a {
+  display: block;
+
+  font-size: 16px;
+  color: #fffcfc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.overlay-content a:hover {
+  color: #3e0af8;
+  /* Darkened text color on hover */
+}
+
+.image-hover:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}
+
+.product-card {
+  transition: transform 0.3s ease-in-out;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+}
+
+.btn-green {
+  background-color: green;
+  border-color: green;
+  color: white;
+}
+
+.btn-green:hover {
+  background-color: darkgreen;
+  border-color: darkgreen;
+}
+
+.like-icon {
+  position: absolute;
+  top: 10px;
+  right: 30px;
+  font-size: 20px;
+  color: rgb(72, 150, 85);
+}
+
+.plant-card {
+  border: 1px solid #fffefe;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* Add box shadow */
+}
+
+.name {
+  text-align: center;
+}
+
+.like {
+  cursor: pointer;
+}
+
+.like.clicked {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.like.liked .like-icon {
+  color: red;
+}
+
+.like .like-icon {
+  font-size: 24px;
+  color: #ccc;
+}
+
+.plantly-link {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #343a40;
+  text-decoration: none;
+}
+
+.plantly-link:hover {
+  color: #212529;
+
+}
+
+.star {
+  font-size: 24px;
+  margin: 0 2px;
+  color: goldenrod;
+}
+
+.star-container {
+  display: flex;
+  justify-content: center;
+}
+
+.overline-14 {
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #5b627d;
+}
+
+.content {
+  font-size: 18px;
+  color: rgb(139, 139, 139);
+}
+
+.heading-link {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #343a40;
+  text-decoration: none;
+}
+
+.product-1 {
+  text-align: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-2 {
+  text-align: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-3 {
+  text-align: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-1 p {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.product-2 p {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.product-3 p {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+
+.image-hover {
+  transition: transform 0.3s ease;
+}
+
+.product-1:hover .image-hover {
+  transform: translateY(-10px);
+}
+
+.product-2:hover .image-hover {
+  transform: translateY(-10px);
+}
+
+.product-3:hover .image-hover {
+  transform: translateY(-10px);
+}
+
+.product-4:hover .image-hover {
+  transform: translateY(-10px);
+}
+
+.product-4 p {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.product-4 {
+  text-align: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-us a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: green;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+.contact-us a:hover {
+  background-color: #0056b3;
+}
+
+.contact-us {
+  padding-bottom: 10px;
+}
+
+.blue-one {
+
+  height: auto;
+  padding: 28px;
+}
+
+.heading-description {
+  text-align: center;
+}
+
+.unique-text {
+  font-weight: 300;
+  text-align: left;
+}
+
+.preloaded-text {
+  font-size: 30px;
+  text-align: center;
+}
+
+.col-md-3 {
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 20px;
+
+}
+
+.number-heading {
+  font-size: 64px;
+  color: #258f67;
+  font-weight: bold;
+  margin: 0;
+  text-align: left;
+}
+
+.description {
+  font-size: 20px;
+  color: #556260;
+  margin-top: 10px;
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+}
+
+.logo-text p {
+  font-size: 44px;
+  font-weight: 400;
+  text-align: center;
+  color: white;
+
+}
+
+.read-more-btn {
+  background-color: #4CAF50;
+  /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 2px;
+  cursor: pointer;
+  border-radius: 25px;
+}
+
+.read-more-btn:hover {
+  background-color: #0d3b0f;
+}
+
+.title-p {
+  font-weight: bold;
+  font-size: 34px;
+  color: #214842;
+}
+
+.content-p {
+  font-size: 20px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  /* Adjust the gap between items as needed */
+}
+
+.content-item {
+  display: flex;
+  align-items: flex-start;
+}
+
+
+.first-p {
+  margin-top: 20px;
+}
+
+.text-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  margin: 0;
+  font-weight: 500;
+  font-size: 20px;
+  color: #214842;
+}
+
+.text-content p {
+  margin: 5px 0 0 0;
+}
+
+.relief-content p:nth-of-type(2) {
+  color: #333;
+  font-size: 18px;
+  line-height: 1.5;
+  /* Example style */
+  margin-top: 5px;
+}
+
+.cactus img {
+
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px 0;
+  /* Example style to add some margin */
+}
+
+.footer {
+  background-color: #f8f9fa;
+  padding: 20px 0;
+}
+
+.footer a {
+  color: #6c757d;
+}
+
+.footer a:hover {
+  color: #495057;
+}

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Header from "@/components/header";
 
 export const metadata: Metadata = {
   title: "Phytogenic",
@@ -13,7 +15,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Header />
+        {children}
+        </body>
     </html>
   );
 }
