@@ -5,9 +5,9 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest, res: NextResponse) {
   await connectToDB();
-  const { title, name, collections } = await req.json();
+  const { title, name, image, collections } = await req.json();
 
-  if (!title || !name || !collections || !Array.isArray(collections)) {
+  if (!title || !name || !image || !collections || !Array.isArray(collections)) {
     return new NextResponse("Not enough data to create a product", {
       status: 400,
     });
