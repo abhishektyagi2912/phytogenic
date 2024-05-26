@@ -1,0 +1,36 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.image img {
+    width: 12vw;
+    height: 15vh;
+    border-radius: 20px;
+}
+
+.catName {
+    display: flex;
+    font-size: 2rem;
+    margin: 0;
+    justify-content: center;
+}
+
+.slider {
+    padding: 10vh 15vw 10vh 15vw;
+}
+
+.category {
+    width: 12vw;
+}
+
+.title {
+    font-size: 4rem;
+    margin: 0;
+}
+
+.description {
+    font-size: 1.5rem;
+    text-align: center;
+}
