@@ -1,22 +1,19 @@
-
-import Footer from "@/components/Footer";
 import Info from "@/components/Info";
 import ProductSection from "@/components/Products";
-import Slider from "@/components/Slider";
 import TherapeuticSection from "@/components/SomeChange";
 import AboutSection from "@/components/details";
 import Main from "@/components/main";
+import Category from "./Product/page";
 
 export default function Home() {
   return (
     <>
       <Main />
-      <Slider />
+      <Category/>
       <ProductSection />
       <Info />
       <AboutSection />
       <TherapeuticSection />
-      <Footer />
     </>
   );
 }

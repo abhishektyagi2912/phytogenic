@@ -12,14 +12,48 @@
 
 .catName {
     display: flex;
-    font-size: 1.3rem;
-    margin-top: 20px;
+    font-size: 18px;
+    margin: 0;
     justify-content: center;
-    font-family: 'Inter';
+    align-items: center;
 }
 
 .slider {
-    padding: 10vh 15vw 10vh 15vw;
+    padding: 10vh 0 10vh 0;
+    margin: 0 10vh 0 10vh;
+ 
+    flex-direction: row;
+    align-items: center;
+}
+
+@media (max-width:768px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+    .slider {
+        padding: 10vh 0 10vh 0;
+        margin: 0 10vh 0 10vh;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    .image img {
+        width: 200px;
+    }
+
+    .catName {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        left: 72px;
+    }
+
+    .category {
+        margin-top: 20px;
+    }
+
 }
 
 .category {

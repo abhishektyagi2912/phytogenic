@@ -1,8 +1,6 @@
 import React from "react";
-import Image from "next/image";
-import styles from "../lib/styles/Home.module.css";
-
-const Slider = () => {
+import styles from "../../lib/styles/Home.module.css";
+function Category() {
   return (
     <section className={styles.slider}>
       <div className={styles.container}>
@@ -39,6 +37,6 @@ const Slider = () => {
       </div>
     </section>
   );
-};
+}
 
-export default Slider;
+export default Category;

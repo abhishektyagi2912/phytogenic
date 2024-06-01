@@ -1,10 +1,49 @@
 .top-image {
   position: relative;
   background: linear-gradient(to right, #e2f8ed 0%, #e5efff 50%);
+  background: url(../public/Slider-31.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 90vh;
 }
 
 .noUnderline {
   text-decoration: none !important;
+}
+
+.text-content {
+  color: white;
+  font-size: 62px;
+  font-weight: 600;
+  position: relative;
+  animation: slideIn 1.5s ease-out forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .text-content {
+    font-size: 18px;
+    /* Adjust font size for smaller screens */
+    padding: 0 10px;
+    /* Add some padding if necessary */
+  }
+}
+
+.embrace {
+  color: #ffffff;
+  font-size: 20px;
 }
 
 .linkSecondary {
@@ -23,26 +62,8 @@
   padding: 20px;
 }
 
-.h4tag {
-  font-size: 36px;
-  font-weight: 700;
-  line-height: 1.2;
-}
-
-.ptag {
-  font-size: 1.3em;
-  color: #000;
-  margin-top: 2vh;
-  margin-bottom: 4vh;
-}
-
 ::-webkit-scrollbar {
   width: 10px;
-}
-
-::selection {
-  background-color: #556260;
-  color: #fff;
 }
 
 .vh-80 {
@@ -62,13 +83,7 @@
   margin-bottom: 20px;
 }
 
-.text-content {
-  font-size: 4.8rem;
-  font-weight: 600;
-  padding-top: 15mm;
-  line-height: 20mm;
 
-}
 
 .image-content img {
   max-width: 100%;
@@ -107,10 +122,25 @@
   transition: color 0.3s ease;
 }
 
+.overlay-content a:hover {
+  color: #3e0af8;
+  /* Darkened text color on hover */
+}
+
+.image-hover:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}
+
+.product-card {
+  transition: transform 0.3s ease-in-out;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+}
+
 .btn-green {
-  text-decoration: none;
-  padding: 1vw;
-  border-radius: 10px;
   background-color: green;
   border-color: green;
   color: white;
@@ -119,6 +149,23 @@
 .btn-green:hover {
   background-color: darkgreen;
   border-color: darkgreen;
+}
+
+.like-icon {
+  position: absolute;
+  top: 10px;
+  right: 30px;
+  font-size: 20px;
+  color: rgb(72, 150, 85);
+}
+
+.plant-card {
+  border: 1px solid #fffefe;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* Add box shadow */
 }
 
 .name {
@@ -217,6 +264,37 @@
   font-weight: 500;
 }
 
+
+.image-hover {
+  transition: transform 0.3s ease;
+}
+
+.product-1:hover .image-hover {
+  transform: translateY(-10px);
+}
+
+.product-2:hover .image-hover {
+  transform: translateY(-10px);
+}
+
+.product-3:hover .image-hover {
+  transform: translateY(-10px);
+}
+
+.product-4:hover .image-hover {
+  transform: translateY(-10px);
+}
+
+.product-4 p {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.product-4 {
+  text-align: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
 .contact-us a {
   display: inline-block;
   padding: 10px 20px;
@@ -292,6 +370,16 @@
 
 }
 
+@media (max-width:768px) {
+  .logo-text p {
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+    color: white;
+
+  }
+}
+
 .read-more-btn {
   background-color: #4CAF50;
   /* Green */
@@ -340,10 +428,6 @@
   margin-top: 20px;
 }
 
-.text-content {
-  display: flex;
-  flex-direction: column;
-}
 
 .heading {
   margin: 0;
@@ -360,15 +444,18 @@
   color: #333;
   font-size: 18px;
   line-height: 1.5;
+  /* Example style */
   margin-top: 5px;
 }
 
 .cactus img {
+
   width: 100%;
   height: auto;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: 10px 0;
+  /* Example style to add some margin */
 }
 
 .footer {
@@ -384,6 +471,236 @@
   color: #495057;
 }
 
+.contact-button {
+  padding: 5px 10px;
+  background-color: #29b03b;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  width: 140px;
+  height: 50px;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+  transition: background-color 0.3s ease;
+}
+
+.contact-button:hover {
+  background-color: #0a6d09;
+  transition: color 2s ease;
+}
+
+.col-md-3 .contact-info {
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  height: 180px;
+  border-radius: 15px;
+  z-index: 13;
+  background: #fff;
+  color: #1b1b1b;
+  cursor: pointer;
+  position: relative;
+  transition: transform .2s, box-shadow .2s;
+  will-change: transform, box-shadow;
+  box-shadow: 1px 3px 3px 1px rgb(0 0 0 / 15%);
+}
+
+.contact-info p.title {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.contact-info p.info {
+  color: #333;
+  font-size: 16px;
+}
+
+.ri {
+  font-size: 24px;
+}
+
+.ri-phone-fill {
+  color: #ff5733;
+}
+
+.ri-mail-line {
+  color: #3399ff;
+}
+
+.ri-global-fill {
+  color: #33cc33;
+}
+
+.ri-map-pin-2-fill {
+  color: #ffcc00;
+}
+
+.write form .form-group {
+  margin-bottom: 20px;
+  /* Adjust the value as needed */
+}
+
+.custom-message {
+  background-color: #0a6d09;
+  ;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.custom-message:hover {
+  background-color: #2bcf0b;
+}
+
+.social-icon {
+  display: inline-block;
+  border: 2px solid white;
+  border-radius: 50%;
+  padding: 10px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.social-icon img {
+  display: block;
+  margin: auto;
+  width: 34px;
+  height: 34px;
+}
+
+.custom-link {
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  color: white;
+  text-decoration: none;
+}
+
+.custom-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  transition: all 0.3s ease-in-out;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+}
+
+.custom-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.mb-2 span {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 18px;
+}
+
+.mb-2 i {
+  margin-right: 10px;
+  /* Adjust as needed */
+}
+
+.mb-2 span.text-white {
+  color: white;
+}
+
+.bg-title-page {
+  background: url(../public/about-bg.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 25vh;
+}
+
+.innerpages-title {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  color: #214842;
+
+}
+
+.innerpages-title1 h1 {
+  font-weight: bolder;
+  font-size: 52px;
+}
+
+.write {
+  align-items: center;
+
+
+  display: flex;
+  flex-direction: column;
+}
+
+.write .form-group {
+  width: 75%;
+  align-items: center;
+  flex-direction: column;
+
+  display: flex;
+}
+
+.main-part {
+  transition: box-shadow 5s ease, transform 0.3s ease;
+}
+
+.main-part:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+.prod-image img {
+  width: 100%;
+
+}
+
+.prod-image {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.prod-image p {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.prod-name p {
+  font-weight: bold;
+  text-align: center;
+}
+
+.prod-name a {
+
+  margin-top: 10px;
+  text-decoration: none;
+
+  font-size: 18px;
+  padding: 10px;
+
+}
+
+.prod-name a:hover {
+
+  border-color: #0056b3;
+
+}
+
+.bg-custom {
+  background-color: #f5f6fb !important;
+}
+
+
 .card-img-top:hover img {
   transform: scale(1.1);
 }
@@ -391,18 +708,22 @@
 .btn-custom {
   transition: background-color 0.5s ease, color 0.5s ease;
 }
+
 .btn-custom:hover {
   background-color: #28a745;
   color: #fff;
 }
+
 .btn-all-products {
   background-color: gold;
   color: black;
 }
+
 .btn-all-products:hover {
   background-color: #28a745;
   color: #fff;
 }
+
 .card-img-top:hover img {
   transform: scale(1.1);
 }

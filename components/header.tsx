@@ -27,12 +27,13 @@ const Header = () => {
         <Navbar.Collapse id="basic-navbar-nav" className={`${isOpen ? 'show' : ''}`}>
           <Nav className="ms-auto">
             <Nav.Link href="/" className="px-2 link-secondary">Home</Nav.Link>
-            <NavDropdown title="Features" id="basic-nav-dropdown" className="px-2 link-dark">
+            <NavDropdown title="Products" id="basic-nav-dropdown" className="px-2 link-dark">
               <NavDropdown.Item href="#feature1">Feature 1</NavDropdown.Item>
               <NavDropdown.Item href="#feature2">Feature 2</NavDropdown.Item>
               <NavDropdown.Item href="#feature3">Feature 3</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="/about" className="px-2 link-dark">About</Nav.Link>
+            <Nav.Link href="/About" className="px-2 link-dark">About</Nav.Link>
+            <Nav.Link href="/Contact" className="px-2 link-dark">Contact</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

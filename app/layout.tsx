@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from "@/components/header";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Phytogenic",
@@ -18,6 +19,7 @@ export default function RootLayout({
       <body>
         <Header />
         {children}
+        <Footer/>
         </body>
     </html>
   );
