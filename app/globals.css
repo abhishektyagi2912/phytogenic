@@ -2,6 +2,7 @@
   position: relative;
   background: linear-gradient(to right, #e2f8ed 0%, #e5efff 50%);
 }
+
 .noUnderline {
   text-decoration: none !important;
 }
@@ -17,12 +18,31 @@
 .textDark {
   color: #343a40 !important;
 }
+
 .text-content {
   padding: 20px;
 }
 
+.h4tag {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.ptag {
+  font-size: 1.3em;
+  color: #000;
+  margin-top: 2vh;
+  margin-bottom: 4vh;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
+}
+
+::selection {
+  background-color: #556260;
+  color: #fff;
 }
 
 .vh-80 {
@@ -87,25 +107,10 @@
   transition: color 0.3s ease;
 }
 
-.overlay-content a:hover {
-  color: #3e0af8;
-  /* Darkened text color on hover */
-}
-
-.image-hover:hover {
-  transform: scale(1.05);
-  transition: transform 0.3s ease-in-out;
-}
-
-.product-card {
-  transition: transform 0.3s ease-in-out;
-}
-
-.product-card:hover {
-  transform: translateY(-10px);
-}
-
 .btn-green {
+  text-decoration: none;
+  padding: 1vw;
+  border-radius: 10px;
   background-color: green;
   border-color: green;
   color: white;
@@ -114,23 +119,6 @@
 .btn-green:hover {
   background-color: darkgreen;
   border-color: darkgreen;
-}
-
-.like-icon {
-  position: absolute;
-  top: 10px;
-  right: 30px;
-  font-size: 20px;
-  color: rgb(72, 150, 85);
-}
-
-.plant-card {
-  border: 1px solid #fffefe;
-  border-radius: 5px;
-  overflow: hidden;
-  background-color: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  /* Add box shadow */
 }
 
 .name {
@@ -227,37 +215,6 @@
 .product-3 p {
   font-size: 20px;
   font-weight: 500;
-}
-
-
-.image-hover {
-  transition: transform 0.3s ease;
-}
-
-.product-1:hover .image-hover {
-  transform: translateY(-10px);
-}
-
-.product-2:hover .image-hover {
-  transform: translateY(-10px);
-}
-
-.product-3:hover .image-hover {
-  transform: translateY(-10px);
-}
-
-.product-4:hover .image-hover {
-  transform: translateY(-10px);
-}
-
-.product-4 p {
-  font-size: 20px;
-  font-weight: 500;
-}
-
-.product-4 {
-  text-align: center;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 .contact-us a {
@@ -403,18 +360,15 @@
   color: #333;
   font-size: 18px;
   line-height: 1.5;
-  /* Example style */
   margin-top: 5px;
 }
 
 .cactus img {
-
   width: 100%;
   height: auto;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: 10px 0;
-  /* Example style to add some margin */
 }
 
 .footer {
@@ -428,4 +382,27 @@
 
 .footer a:hover {
   color: #495057;
+}
+
+.card-img-top:hover img {
+  transform: scale(1.1);
+}
+
+.btn-custom {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+.btn-custom:hover {
+  background-color: #28a745;
+  color: #fff;
+}
+.btn-all-products {
+  background-color: gold;
+  color: black;
+}
+.btn-all-products:hover {
+  background-color: #28a745;
+  color: #fff;
+}
+.card-img-top:hover img {
+  transform: scale(1.1);
 }

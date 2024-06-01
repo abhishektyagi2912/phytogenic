@@ -12,9 +12,10 @@
 
 .catName {
     display: flex;
-    font-size: 2rem;
-    margin: 0;
+    font-size: 1.3rem;
+    margin-top: 20px;
     justify-content: center;
+    font-family: 'Inter';
 }
 
 .slider {

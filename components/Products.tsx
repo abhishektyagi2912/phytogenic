@@ -1,39 +1,62 @@
 import React from "react";
-import Image from "next/image";
 import { getProducts } from "@/lib/actions/actions";
 
-const ProductSection = async() => {
+const ProductSection = async () => {
   const products = await getProducts();
+
+  const topProducts = products.slice(0, 4);
 
   return (
     <section>
       <div className="container-xxl">
-        <div className="mid-part text-center">
-          <h2 className="mb-4">Products</h2>
-          <div className="row">
-            {products.map((product: ProductType) => (
-              <div className="col-md-3 mb-4" key={product._id}>
-                <div className="card product-card h-100">
-                  <Image
+        <div className="text-center my-4">
+          <h4 className="h4tag">Popular Products</h4>
+          <p className="ptag">
+            Suscipit tellus mauris a diam maecenas sed enim ut sem. <br />
+            Turpis egestas maecenas pharetra convallis posuere.
+          </p>
+        </div>
+        <div className="row">
+          {topProducts.map((product: ProductType) => (
+            <div className="col-md-3 mb-4" key={product._id}>
+              <div className="card h-100 border-0">
+                <div
+                  className="card-img-top d-flex justify-content-center align-items-center"
+                  style={{
+                    height: "230px",
+                    overflow: "hidden",
+                    position: "relative",
+                  }}
+                >
+                  <img
                     src={product.media[0]}
                     alt={product.title}
-                    className="card-img-top image-hover"
-                    layout="responsive"
-                    width={500}
-                    height={500}
+                    className="img-fluid"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      borderRadius: "10px",
+                      transition: "transform 0.5s",
+                    }}
                   />
-                  <div className="card-body d-flex flex-column">
-                    <h5 className="card-title">{product.title}</h5>
-                    <div className="mt-auto">
-                      <a href="#" className="btn btn-green">
-                        Contact Us
-                      </a>
-                    </div>
+                </div>
+                <div className="card-body d-flex flex-column">
+                  <h5 className="card-title text-center mb-4">{product.title}</h5>
+                  <div className="mt-auto text-center">
+                    <a href="#" className="btn btn-success btn-custom">
+                      Contact Us
+                    </a>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
+        </div>
+        <div className="text-center mt-4">
+          <a href="#" className="btn btn-custom btn-all-products">
+            All Products
+          </a>
         </div>
       </div>
     </section>
