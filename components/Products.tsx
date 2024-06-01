@@ -1,5 +1,6 @@
 import React from "react";
 import { getProducts } from "@/lib/actions/actions";
+import Link from "next/link";
 
 const ProductSection = async () => {
   const products = await getProducts();
@@ -44,19 +45,14 @@ const ProductSection = async () => {
                 <div className="card-body d-flex flex-column">
                   <h5 className="card-title text-center mb-4">{product.title}</h5>
                   <div className="mt-auto text-center">
-                    <a href="#" className="btn btn-success btn-custom">
+                    <Link href="/Contact" className="btn btn-success btn-custom">
                       Contact Us
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
             </div>
           ))}
-        </div>
-        <div className="text-center mt-4">
-          <a href="#" className="btn btn-custom btn-all-products">
-            All Products
-          </a>
         </div>
       </div>
     </section>

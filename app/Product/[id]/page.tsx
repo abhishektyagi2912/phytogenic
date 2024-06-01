@@ -1,6 +1,14 @@
+import { getCollectionDetails } from "@/lib/actions/actions";
 import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
-const Products = () => {
+const Products = async ({
+  params,
+}: {
+  params: { id: string };
+}) => {
+  const collectionDetails = await getCollectionDetails(params.id);
   return (
     <>
       <section>
@@ -10,7 +18,7 @@ const Products = () => {
               <div className="row">
                 <div className="col-lg-12 innerpages-title1">
                   <div>
-                    <h1>Products</h1>
+                    <h1>{collectionDetails.title}</h1>
                   </div>
                 </div>
               </div>
@@ -19,181 +27,34 @@ const Products = () => {
         </div>
       </section>
       <section>
-        <div className="container">
-          <div className="row">
-            <div className="col-md-3 mt-3">
-              <div className="main-part">
-                <div className="prod-image p-3 ">
-                  <Image
-                    src="/images/herbal-1.jpg"
-                    alt="Herbal Product"
-                    width={200}
-                    height={200}
-                  />
-                  <p className="text-center mt-2">Glabridin 3.5%</p>
-                </div>
-                <div className="prod-name p-3 text-center bg-custom">
-                  <p className="font-weight-bold">Glabridin 3.5%</p>
-                  <a href="#" className="d-block mt-2 text-success p-2 rounded">
-                    Contact Us
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-3 mt-3">
-              <div className="main-part">
-                <div className="prod-image p-3">
-                  <Image
-                    src="/images/herbal-2.jpg"
-                    alt="Herbal Product"
-                    width={200}
-                    height={200}
-                  />
-                  <p className="text-center mt-2">Glabridin 3.5%</p>
-                </div>
-                <div className="prod-name p-3 text-center bg-custom">
-                  <p className="font-weight-bold">Glabridin 3.5%</p>
-                  <a href="#" className="d-block mt-2 text-success p-2 rounded">
-                    Contact Us
-                  </a>
+          <div className="container">
+            {collectionDetails.products.map((product: ProductType) => (
+              <div className="col-md-3 mt-3 px-2" key={product._id}>
+                <div className="main-part">
+                  <div className="prod-image p-3">
+                    <Image
+                      src={product.media[0]}
+                      alt={product.title}
+                      width={200}
+                      height={200}
+                      className="rounded-lg cursor-pointer"
+                    />
+                    <p className="text-center mt-2">{product.title}</p>
+                  </div>
+                  <div className="prod-name p-3 text-center bg-custom">
+                    <p className="font-weight-bold">{product.title}</p>
+                    <Link href="/Contact" className="d-block mt-2 text-success p-2 rounded">
+                      Contact Us
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="col-md-3 mt-3">
-              <div className="main-part">
-                <div className="prod-image p-3">
-                  <Image
-                    src="/images/herbal-3.jpg"
-                    alt="Herbal Product"
-                    width={200}
-                    height={200}
-                  />
-                  <p className="text-center mt-2">Glabridin 3.5%</p>
-                </div>
-                <div className="prod-name p-3 text-center bg-custom">
-                  <p className="font-weight-bold">Glabridin 3.5%</p>
-                  <a href="#" className="d-block mt-2 text-success p-2 rounded">
-                    Contact Us
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-3 mt-3">
-              <div className="main-part">
-                <div className="prod-image p-3">
-                  <Image
-                    src="/images/herbal-5.jpg"
-                    alt="Herbal Product"
-                    width={200}
-                    height={200}
-                  />
-                  <p className="text-center mt-2">Glabridin 3.5%</p>
-                </div>
-                <div className="prod-name p-3 text-center bg-custom">
-                  <p className="font-weight-bold">Glabridin 3.5%</p>
-                  <a href="#" className="d-block mt-2 text-success p-2 rounded">
-                    Contact Us
-                  </a>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
-          <div className="part-two mt-3 ">
-            <div className="row">
-              <div className="col-md-3">
-                <div className="main-part">
-                  <div className="prod-image p-3">
-                    <Image
-                      src="/images/herbal-5.jpg"
-                      alt="Herbal Product"
-                      width={200}
-                      height={200}
-                    />
-                    <p className="text-center mt-2">Glabridin 3.5%</p>
-                  </div>
-                  <div className="prod-name p-3 text-center bg-custom">
-                    <p className="font-weight-bold">Glabridin 3.5%</p>
-                    <a
-                      href="#"
-                      className="d-block mt-2 text-success p-2 rounded"
-                    >
-                      Contact Us
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-3">
-                <div className="main-part">
-                  <div className="prod-image p-3">
-                    <Image
-                      src="/images/herbal-1.jpg"
-                      alt="Herbal Product"
-                      width={200}
-                      height={200}
-                    />
-                    <p className="text-center mt-2">Glabridin 3.5%</p>
-                  </div>
-                  <div className="prod-name p-3 text-center bg-custom">
-                    <p className="font-weight-bold">Glabridin 3.5%</p>
-                    <a
-                      href="#"
-                      className="d-block mt-2 text-success p-2 rounded"
-                    >
-                      Contact Us
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-3">
-                <div className="main-part">
-                  <div className="prod-image p-3">
-                    <Image
-                      src="/images/herbal-2.jpg"
-                      alt="Herbal Product"
-                      width={200}
-                      height={200}
-                    />
-                    <p className="text-center mt-2">Glabridin 3.5%</p>
-                  </div>
-                  <div className="prod-name p-3 text-center bg-custom">
-                    <p className="font-weight-bold">Glabridin 3.5%</p>
-                    <a
-                      href="#"
-                      className="d-block mt-2 text-success p-2 rounded"
-                    >
-                      Contact Us
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-3">
-                <div className="main-part">
-                  <div className="prod-image p-3">
-                    <Image
-                      src="/images/herbal-3.jpg"
-                      alt="Herbal Product"
-                      width={200}
-                      height={200}
-                    />
-                    <p className="text-center mt-2">Glabridin 3.5%</p>
-                  </div>
-                  <div className="prod-name p-3 text-center bg-custom">
-                    <p className="font-weight-bold">Glabridin 3.5%</p>
-                    <a
-                      href="#"
-                      className="d-block mt-2 text-success p-2 rounded"
-                    >
-                      Contact Us
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    </section>
     </>
   );
 };
 
 export default Products;
+export const dynamic = "force-dynamic";

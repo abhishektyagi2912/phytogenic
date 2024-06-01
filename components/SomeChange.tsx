@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const TherapeuticSection = () => {
   return (
@@ -13,7 +14,9 @@ const TherapeuticSection = () => {
                 Accumsan sit amet nulla facilisi morbi tempus. Suscipit tellus mauris a diam maecenas sed enim ut sem.
                 Turpis egestas maecenas pharetra convallis posuere
               </p>
-              <button className="btn btn-success">Read More</button>
+              <Link href="/Contact">
+              <button className="btn btn-success">Contact for info</button>
+              </Link>
             </div>
           </div>
           <div className="col-md-4 d-flex align-items-center justify-content-center">
