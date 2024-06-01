@@ -12,21 +12,19 @@
 
 .catName {
     display: flex;
-    font-size: 18px;
-    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 10px;
     justify-content: center;
     align-items: center;
-    
+
 }
 
-.catName h3{
-    text-decoration: none;
-}
+
 
 .slider {
     padding: 10vh 0 10vh 0;
     margin: 0 10vh 0 10vh;
- 
     flex-direction: row;
     align-items: center;
 }
@@ -42,9 +40,12 @@
         display: flex;
         flex-direction: row;
         align-items: center;
+        text-decoration: none;
     }
     .image img {
         width: 200px;
+        position: relative;
+        right: 20px;
     }
 
     .catName {
@@ -52,7 +53,8 @@
         display: flex;
         justify-content: center;
         position: relative;
-        left: 72px;
+        left: 60px;
+        white-space: nowrap;
     }
 
     .category {

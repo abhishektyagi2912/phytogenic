@@ -212,7 +212,11 @@
   display: flex;
   justify-content: center;
 }
+.nana{
 
+  color: rgb(10, 9, 9);
+ 
+}
 .overline-14 {
   font-size: 1.4rem;
   line-height: 2.2rem;
