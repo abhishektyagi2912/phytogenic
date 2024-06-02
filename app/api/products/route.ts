@@ -4,7 +4,7 @@ import { connectToDB } from "@/lib/mongodb";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest, res: NextResponse) {
-  await connectToDB();
+  // await connectToDB();
   const { title, name, image, collections } = await req.json();
 
   if (!title || !name || !image || !collections || !Array.isArray(collections)) {

@@ -5,7 +5,7 @@ import Collection from "@/lib/models/collections";
 export const POST = async (req: NextRequest) => {
   try {
 
-    await connectToDB();
+    // await connectToDB();
 
     const { name } = await req.json()
 

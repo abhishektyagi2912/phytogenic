@@ -6,6 +6,8 @@ const ProductSection = async () => {
   const products = await getProducts();
 
   const topProducts = products.slice(0, 4);
+  console.log(products);
+  console.log(topProducts);
 
   return (
     <section>
