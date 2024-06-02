@@ -215,6 +215,18 @@
   color: rgb(10, 9, 9);
 }
 
+@media (max-width: 768px) {
+
+  .nana {
+    color: rgb(10, 9, 9);
+    text-decoration: none;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+}
+
 .overline-14 {
   font-size: 1.4rem;
   line-height: 2.2rem;
