@@ -1,20 +1,27 @@
+import { NextRequest, NextResponse } from 'next/server';
+import nodemailer from 'nodemailer';
 
-import { NextApiRequest, NextApiResponse } from "next";
-import nodemailer from "nodemailer";
+type ContactFormData = {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+};
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method === "POST") {
-    const { name, email, phone, message } = req.body;
-
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: process.env.EMAIL_USER, 
-        pass: process.env.EMAIL_PASS,
-      },
-    });
-
+export default async function handler(req: NextRequest, res: NextResponse) {
+  if (req.method === 'POST') {
     try {
+      const body = await req.json() as ContactFormData;
+      const { name, email, phone, message } = body;
+
+      const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: process.env.EMAIL_USER,
+          pass: process.env.EMAIL_PASS,
+        },
+      });
+
       await transporter.sendMail({
         from: email,
         to: 'sales@phytogenic.co.in',
@@ -28,12 +35,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         `,
       });
 
-      res.status(200).json({ message: 'Email sent successfully!' });
+      return new NextResponse(JSON.stringify({ message: 'Email sent successfully!' }), { status: 200 });
     } catch (error) {
       console.error(error);
-      res.status(500).json({ message: 'Failed to send email.' });
+      return new NextResponse(JSON.stringify({ message: 'Failed to send email.' }), { status: 500 });
     }
   } else {
-    res.status(405).json({ message: 'Method not allowed.' });
+    return new NextResponse(JSON.stringify({ message: 'Method not allowed.' }), { status: 405 });
   }
 }
