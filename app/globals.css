@@ -212,15 +212,15 @@
   display: flex;
   justify-content: center;
 }
-.nana{
 
+.nana {
   color: rgb(10, 9, 9);
- 
 }
+
 .overline-14 {
   font-size: 1.4rem;
   line-height: 2.2rem;
-  letter-spacing: 4px;
+  letter-spacing: 1px;
   text-transform: uppercase;
   font-weight: 400;
   color: #5b627d;

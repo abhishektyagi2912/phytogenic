@@ -3,7 +3,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    flex-wrap: wrap; 
 }
 
 .image img {
@@ -13,12 +13,9 @@
 }
 
 .catName {
-    display: flex;
     font-size: 20px;
     font-weight: 700;
     margin: 10px;
-    justify-content: center;
-    align-items: center;
 }
 
 .slider {
@@ -53,8 +50,6 @@
 
     .catName {
         margin-top: 10px;
-        display: flex;
-        justify-content: center;
         white-space: nowrap;
     }
 
@@ -69,10 +64,11 @@
 
 .category {
     width: 100%;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
     flex-direction: row;
     justify-content: space-between;
-    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    flex-wrap: wrap;
 }
 
 .title {

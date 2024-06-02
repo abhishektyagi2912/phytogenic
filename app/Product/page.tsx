@@ -14,20 +14,18 @@ const Category = () => {
   useEffect(() => {
     const fetchCollections = async () => {
       const fetchedCollections = await getCollections();
-      setCollections(fetchedCollections);
+      setCollections(fetchedCollections.reverse());
       setLoading(false);
     };
     fetchCollections();
   }, []);
-
-  const topCollections = collections.slice(0, 6);
 
   return (
     <section className={styles.slider}>
       <div className={styles.container}>
         <div className={styles.category}>
           {loading ? (
-            Array.from({ length: 5 }).map((_, index) => (
+            Array.from({ length: 4 }).map((_, index) => (
               <div key={index} className="nana" style={{ margin: '20px', textDecoration: 'none' }}>
                 <div className={styles.image}>
                   <Skeleton height={200} />
@@ -36,7 +34,7 @@ const Category = () => {
               </div>
             ))
           ) : (
-            topCollections.map((collection: CollectionType) => (
+            collections.map((collection: CollectionType, index: number) => (
               <Link href={`/Product/${collection._id}`} key={collection._id} className="nana" style={{textDecoration:'none'}}>
                 <div className={styles.image}>
                   <Image
