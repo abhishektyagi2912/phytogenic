@@ -31,13 +31,10 @@
   }
 }
 
-/* Media query for mobile devices */
 @media (max-width: 768px) {
   .text-content {
-    font-size: 18px;
-    /* Adjust font size for smaller screens */
+    font-size: 35px;
     padding: 0 10px;
-    /* Add some padding if necessary */
   }
 }
 
