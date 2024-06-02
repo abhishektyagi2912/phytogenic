@@ -8,8 +8,8 @@ function Main() {
       <div className="container my-auto">
         <div className="row align-items-center">
           <div className="col-md-8 text-content">
-            Phtogenic Life Science{" "}
-            <span className="highlight"> Herbal-Extract, Natural Active</span>{" "}
+            Phtogenic Life Science{" "} <br />
+            <span className="highlight"> Herbal-Extract, Natural Active</span>{" "} <br />
             Speciality Chemicals
             <div className="content mt-3">
               <p className="embrace">

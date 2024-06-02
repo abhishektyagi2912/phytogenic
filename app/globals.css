@@ -1,7 +1,7 @@
 .top-image {
   position: relative;
   background: linear-gradient(to right, #e2f8ed 0%, #e5efff 50%);
-  background: url(../public/Slider-31.jpg);
+  background: url(../public/bca2.jpg);
   background-position: center;
   background-size: cover;
   height: 90vh;
@@ -42,8 +42,9 @@
 }
 
 .embrace {
-  color: #ffffff;
+  color: white;
   font-size: 20px;
+  font-weight: 500;
 }
 
 .linkSecondary {
