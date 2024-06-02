@@ -8,7 +8,7 @@ type ContactFormData = {
   message: string;
 };
 
-export default async function handler(req: NextRequest, res: NextResponse) {
+export async function POST(req: NextRequest, res: NextResponse) {
   if (req.method === 'POST') {
     try {
       const body = await req.json() as ContactFormData;
