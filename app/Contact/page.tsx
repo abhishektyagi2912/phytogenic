@@ -1,7 +1,51 @@
+'use client';
+import React, { ChangeEvent, FormEvent, useState } from "react";
 import Head from "next/head";
 import "remixicon/fonts/remixicon.css";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+
+  const [status, setStatus] = useState('');
+
+  const handleChange = (e:ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
+
+  const handleSubmit = async (e:FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus('Sending...');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        setStatus('Message sent successfully!');
+        setFormData({ name: '', email: '', phone: '', message: '' });
+      } else {
+        setStatus('Failed to send message.');
+      }
+    } catch (error) {
+      console.error(error);
+      setStatus('Failed to send message.');
+    }
+  };
+
   return (
     <>
       <Head>
@@ -30,21 +74,23 @@ const Contact = () => {
               <div className="contact-info">
                 <i className="ri ri-phone-fill"></i>
                 <p className="title">Contact</p>
-                <p className="info">400 500 600 700</p>
+                <p className="info">+91-8696580932 <br /> +91-9599177616</p>
               </div>
             </div>
             <div className="col-md-3">
               <div className="contact-info">
                 <i className="ri ri-mail-line"></i>
                 <p className="title">Email</p>
-                <p className="info">info@srrealty.com</p>
+                <p className="info">sales@phytogenic.co.in <br /> ridhima@phytogenic.co.in</p>
               </div>
             </div>
             <div className="col-md-3">
               <div className="contact-info">
-                <i className="ri ri-global-fill"></i>
-                <p className="title">Website</p>
-                <p className="info">www.srrealty.com</p>
+                <i className="ri ri-map-pin-2-fill"></i>
+                <p className="title">Corporate Office</p>
+                <p className="info">
+                  Phytogenic Life Science, Landmark Cyber Park, 3rd floor, sector 67, Gurugram, Haryana 1220002
+                </p>
               </div>
             </div>
             <div className="col-md-3">
@@ -52,7 +98,7 @@ const Contact = () => {
                 <i className="ri ri-map-pin-2-fill"></i>
                 <p className="title">Address</p>
                 <p className="info">
-                  Lorem ipsum dolor sit amet consectetur adipisicing.
+                  Manufacturing Unit: Plot No. C-21, Khasara No. 85, Mauja-Dehtora, Nandanpuram, Agra 282007
                 </p>
               </div>
             </div>
@@ -65,13 +111,15 @@ const Contact = () => {
             <div className="col-md-12">
               <div className="write">
                 <h2>Write To Us</h2>
-                <form action="#" method="post" className="form-group">
+                <form onSubmit={handleSubmit} className="form-group">
                   <div className="form-group mt-2">
                     <input
                       type="text"
                       className="form-control"
                       placeholder="Your Name"
                       name="name"
+                      value={formData.name}
+                      onChange={handleChange}
                       required
                     />
                   </div>
@@ -81,15 +129,19 @@ const Contact = () => {
                       className="form-control"
                       placeholder="Your Email"
                       name="email"
+                      value={formData.email}
+                      onChange={handleChange}
                       required
                     />
                   </div>
                   <div className="form-group">
                     <input
-                      type="text"
+                      type="tel"
                       className="form-control"
-                      placeholder="Your Address"
-                      name="address"
+                      placeholder="Your Mobile No."
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
                       required
                     />
                   </div>
@@ -98,6 +150,8 @@ const Contact = () => {
                       className="form-control"
                       placeholder="Your Message"
                       name="message"
+                      value={formData.message}
+                      onChange={handleChange}
                       required
                     ></textarea>
                   </div>
@@ -105,6 +159,7 @@ const Contact = () => {
                     Send Message
                   </button>
                 </form>
+                {status && <p>{status}</p>}
               </div>
             </div>
           </div>

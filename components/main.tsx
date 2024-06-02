@@ -8,21 +8,23 @@ function Main() {
       <div className="container my-auto">
         <div className="row align-items-center">
           <div className="col-md-8 text-content">
-          Herbalist–  Medical <span className="highlight"> Marijuana</span> Store Theme
+            Phtogenic Life Science{" "}
+            <span className="highlight"> Herbal-Extract, Natural Active</span>{" "}
+            Speciality Chemicals
             <div className="content mt-3">
               <p className="embrace">
-                Embrace your current situation and make the most of it. Just
-                like a plant thrives where it is rooted, find your strength and
-                potential in your present environment.
+                We are a leading manufacturer of Herbal Extracts, Natural
+                Actives and Speciality Chemicals. We are committed to providing
+                the best quality products to our customers. Our products are
+                manufactured using the latest technology and are in compliance
+                with international standards. 
               </p>
             </div>
             <div className="custom-button">
-              <Contact/>
+              <Contact />
             </div>
           </div>
-          <div className="col-md-4 d-flex justify-content-center">
-           
-          </div>
+          <div className="col-md-4 d-flex justify-content-center"></div>
         </div>
       </div>
     </section>
