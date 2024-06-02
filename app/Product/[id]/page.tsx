@@ -27,7 +27,8 @@ const Products = async ({
         </div>
       </section>
       <section>
-          <div className="container">
+        <div className="container">
+          <div className="row">
             {collectionDetails.products.map((product: ProductType) => (
               <div className="col-md-3 mt-3 px-2" key={product._id}>
                 <div className="main-part">
@@ -51,7 +52,8 @@ const Products = async ({
               </div>
             ))}
           </div>
-    </section>
+        </div>
+      </section>
     </>
   );
 };
