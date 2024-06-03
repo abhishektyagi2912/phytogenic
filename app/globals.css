@@ -741,3 +741,8 @@
 .card-img-top:hover img {
   transform: scale(1.1);
 }
+
+.bttn{
+  display: flex;
+  justify-content: center;
+}
