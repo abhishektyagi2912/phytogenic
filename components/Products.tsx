@@ -33,29 +33,23 @@ const ProductSection = () => {
         <div className="row">
           {loading
             ? Array.from({ length: 4 }).map((_, index) => (
-                <div className="col-md-3 mb-4" key={index}>
-                  <div className="card h-100 border-0">
-                    <div
-                      className="card-img-top d-flex justify-content-center align-items-center"
-                      style={{
-                        height: "230px",
-                        overflow: "hidden",
-                        position: "relative",
-                      }}
-                    >
-                      <Skeleton width="100%" height="100%" />
-                    </div>
-                    <div className="card-body d-flex flex-column">
-                      <h5 className="card-title text-center mb-4">
-                        <Skeleton width="60%" />
-                      </h5>
-                      <div className="mt-auto text-center">
-                        <Skeleton width="100px" height="40px" />
-                      </div>
-                    </div>
+              <div className="col-md-3 mt-3 px-2" key={index}>
+                <div className="main-part">
+                  <div className="prod-image p-3">
+                    <Skeleton height={200} width={200} />
+                    <p className="text-center mt-2">
+                      <Skeleton width={100} />
+                    </p>
+                  </div>
+                  <div className="prod-name p-3 text-center bg-custom">
+                    <p className="font-weight-bold">
+                      <Skeleton width={100} />
+                    </p>
+                    <Skeleton width={80} height={30} />
                   </div>
                 </div>
-              ))
+              </div>
+            ))
             : topProducts.map((product: ProductType) => (
                 <div className="col-md-3 mb-4" key={product._id}>
                   <div className="card h-100 border-0">
