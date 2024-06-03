@@ -1,19 +1,19 @@
 export const getCollections = async () => {
   const collections = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/collections`
+    `https://admin-dashborad-p.vercel.app/api/collections`
   );
   return await collections.json();
 };
 
 export const getCollectionDetails = async (collectionId: string) => {
   const collection = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/collections/${collectionId}`
+    `https://admin-dashborad-p.vercel.app/api/collections/${collectionId}`
   );
   return await collection.json();
 };
 
 export const getProducts = async () => {
-  const products = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products`);
+  const products = await fetch(`https://admin-dashborad-p.vercel.app/api/products`);
   return await products.json();
 };
 
@@ -26,7 +26,7 @@ export const getProducts = async () => {
 
 export const getSearchedProducts = async (query: string) => {
   const searchedProducts = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/search/${query}`
+    `https://admin-dashborad-p.vercel.app/api/search/${query}`
   );
   return await searchedProducts.json();
 };
