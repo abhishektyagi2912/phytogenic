@@ -74,7 +74,7 @@ const Contact = () => {
               <div className="contact-info">
                 <i className="ri ri-phone-fill"></i>
                 <p className="title">Contact</p>
-                <p className="info">+91-8696580932 <br /> +91-9599177616</p>
+                <p className="info">+91-9599177616 <br/> +91-8696580932</p>
               </div>
             </div>
             <div className="col-md-3">
