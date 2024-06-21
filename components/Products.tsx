@@ -22,7 +22,7 @@ const ProductSection = () => {
 
   return (
     <section>
-      <div className="container-xxl">
+      <div className="container-xxl product-items">
         <div className="text-center my-4">
           <h4 className="h4tag">Popular Products</h4>
           <p className="ptag">
