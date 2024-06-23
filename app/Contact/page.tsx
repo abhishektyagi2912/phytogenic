@@ -1,48 +1,50 @@
-'use client';
+"use client";
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import Head from "next/head";
 import "remixicon/fonts/remixicon.css";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
   });
 
-  const [status, setStatus] = useState('');
+  const [status, setStatus] = useState("");
 
-  const handleChange = (e:ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     });
   };
 
-  const handleSubmit = async (e:FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setStatus('Sending...');
+    setStatus("Sending...");
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
+      const response = await fetch("/api/contact", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(formData),
       });
 
       if (response.ok) {
-        setStatus('Message sent successfully!');
-        setFormData({ name: '', email: '', phone: '', message: '' });
+        setStatus("Message sent successfully!");
+        setFormData({ name: "", email: "", phone: "", message: "" });
       } else {
-        setStatus('Failed to send message.');
+        setStatus("Failed to send message.");
       }
     } catch (error) {
       console.error(error);
-      setStatus('Failed to send message.');
+      setStatus("Failed to send message.");
     }
   };
 
@@ -74,14 +76,18 @@ const Contact = () => {
               <div className="contact-info">
                 <i className="ri ri-phone-fill"></i>
                 <p className="title">Contact</p>
-                <p className="info">+91-9599177616 <br/> +91-8696580932</p>
+                <p className="info">
+                  +91-9599177616 <br /> +91-8696580932
+                </p>
               </div>
             </div>
             <div className="col-md-3">
               <div className="contact-info">
                 <i className="ri ri-mail-line"></i>
                 <p className="title">Email</p>
-                <p className="info">sales@phytogenic.co.in <br /> ridhima@phytogenic.co.in</p>
+                <p className="info">
+                  sales@phytogenic.co.in <br /> ridhima@phytogenic.co.in
+                </p>
               </div>
             </div>
             <div className="col-md-3">
@@ -89,7 +95,8 @@ const Contact = () => {
                 <i className="ri ri-map-pin-2-fill"></i>
                 <p className="title">Corporate Office</p>
                 <p className="info">
-                  Phytogenic Life Science, Landmark Cyber Park, 3rd floor, sector 67, Gurugram, Haryana 1220002
+                  Vagmine Biocare , Landmark Cyber Park, 3rd floor, sector 67,
+                  Gurugram, Haryana 1220002
                 </p>
               </div>
             </div>
@@ -98,7 +105,8 @@ const Contact = () => {
                 <i className="ri ri-map-pin-2-fill"></i>
                 <p className="title">Address</p>
                 <p className="info">
-                  Manufacturing Unit: Plot No. C-21, Khasara No. 85, Mauja-Dehtora, Nandanpuram, Agra 282007
+                  Manufacturing Unit: Plot No. C-21, Khasara No. 85,
+                  Mauja-Dehtora, Nandanpuram, Agra 282007
                 </p>
               </div>
             </div>
