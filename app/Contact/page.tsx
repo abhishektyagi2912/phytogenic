@@ -95,8 +95,8 @@ const Contact = () => {
                 <i className="ri ri-map-pin-2-fill"></i>
                 <p className="title">Corporate Office</p>
                 <p className="info">
-                  Vagmine Biocare , Landmark Cyber Park, 3rd floor, sector 67,
-                  Gurugram, Haryana 1220002
+                  Phytogenic Life Science, Landmark Cyber Park, 3rd floor,
+                  sector 67, Gurugram, Haryana 1220002
                 </p>
               </div>
             </div>
