@@ -26,30 +26,31 @@ const ProductSection = () => {
         <div className="text-center my-4">
           <h4 className="h4tag">Popular Products</h4>
           <p className="ptag">
-            Suscipit tellus mauris a diam maecenas sed enim ut sem. <br />
-            Turpis egestas maecenas pharetra convallis posuere.
+            Phytorelief (Chamomile, Aloevera and Ginger Extract) makes you
+            fomulation non irritants, <br />
+            Phytosun (Nano Zinc for Mineral Sunscreen).
           </p>
         </div>
         <div className="row">
           {loading
             ? Array.from({ length: 4 }).map((_, index) => (
-              <div className="col-md-3 mt-3 px-2" key={index}>
-                <div className="main-part">
-                  <div className="prod-image p-3">
-                    <Skeleton height={200} width={200} />
-                    <p className="text-center mt-2">
-                      <Skeleton width={100} />
-                    </p>
-                  </div>
-                  <div className="prod-name p-3 text-center bg-custom">
-                    <p className="font-weight-bold">
-                      <Skeleton width={100} />
-                    </p>
-                    <Skeleton width={80} height={30} />
+                <div className="col-md-3 mt-3 px-2" key={index}>
+                  <div className="main-part">
+                    <div className="prod-image p-3">
+                      <Skeleton height={200} width={200} />
+                      <p className="text-center mt-2">
+                        <Skeleton width={100} />
+                      </p>
+                    </div>
+                    <div className="prod-name p-3 text-center bg-custom">
+                      <p className="font-weight-bold">
+                        <Skeleton width={100} />
+                      </p>
+                      <Skeleton width={80} height={30} />
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))
+              ))
             : topProducts.map((product: ProductType) => (
                 <div className="col-md-3 mb-4" key={product._id}>
                   <div className="card h-100 border-0">
