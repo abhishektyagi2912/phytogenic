@@ -50,7 +50,12 @@ function Main() {
           </SceneErrorBoundary>
         )}
       </motion.div>
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-t from-cream-50 via-cream-50/20 to-transparent" />
+      {/* Protects the left-aligned copy from the 3D scene: solid where the
+          text sits, fading away on the right where the shapes are free to
+          show. Without this, the floating blobs can drift behind the
+          headline and wreck contrast. */}
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-cream-50 via-cream-50/95 via-45% to-transparent to-80%" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-t from-cream-50 via-cream-50/10 to-transparent" />
 
       {/*
         Plain CSS keyframe animation (see tailwind.config "fade-up"), not
@@ -60,7 +65,7 @@ function Main() {
         never get stuck invisible behind a slow/blocked script.
       */}
       <div className="container-custom relative py-20 sm:py-24">
-        <div className="max-w-3xl">
+        <div className="max-w-3xl rounded-[2.5rem] bg-cream-50/55 p-2 backdrop-blur-[2px] sm:p-4">
           <span className="section-eyebrow animate-fade-up [animation-delay:0.05s]">
             <Leaf className="h-3.5 w-3.5" /> Herbal Extracts &amp; Natural Actives
           </span>

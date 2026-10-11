@@ -13,12 +13,15 @@ type Blob = {
   geometry: "icosahedron" | "sphere" | "torus";
 };
 
+// Kept to the right half of the scene (positive x) and pushed back in depth
+// so the floating shapes read as decoration without ever drifting behind
+// the hero copy, which is left-aligned over this canvas.
 const BLOBS: Blob[] = [
-  { position: [2.4, 0.6, -1], scale: 1.5, color: "#3d8760", speed: 1.1, geometry: "icosahedron" },
-  { position: [-2.6, -0.8, -2], scale: 1.9, color: "#2c6b4a", speed: 0.8, geometry: "sphere" },
-  { position: [0.6, 1.6, -3], scale: 1.1, color: "#e8b84b", speed: 1.4, geometry: "torus" },
-  { position: [-1.4, 1.4, -1.5], scale: 0.7, color: "#8cc6a2", speed: 1.6, geometry: "sphere" },
-  { position: [2, -1.6, -2.5], scale: 0.9, color: "#d9a62e", speed: 1.2, geometry: "icosahedron" },
+  { position: [3.4, 1, -1.5], scale: 1.4, color: "#3d8760", speed: 1.1, geometry: "icosahedron" },
+  { position: [4.4, -1.1, -2.5], scale: 1.7, color: "#2c6b4a", speed: 0.8, geometry: "sphere" },
+  { position: [2.6, 1.9, -3], scale: 1, color: "#e8b84b", speed: 1.4, geometry: "torus" },
+  { position: [3.6, -2.2, -2], scale: 0.7, color: "#8cc6a2", speed: 1.6, geometry: "sphere" },
+  { position: [4.8, 0.4, -3.2], scale: 0.8, color: "#d9a62e", speed: 1.2, geometry: "icosahedron" },
 ];
 
 function BlobMesh({ blob }: { blob: Blob }) {

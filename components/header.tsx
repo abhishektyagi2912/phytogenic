@@ -117,7 +117,7 @@ const Header = () => {
               exit="exit"
               onMouseEnter={() => setCollectionsOpen(true)}
               onMouseLeave={() => setCollectionsOpen(false)}
-              className="absolute left-1/2 top-full mt-3 w-[640px] max-w-[90vw] -translate-x-1/2 overflow-hidden rounded-3xl border border-sage-200 bg-white/95 p-5 shadow-2xl shadow-forest-900/10 backdrop-blur-xl"
+              className="fixed left-1/2 top-24 z-50 w-[640px] max-w-[90vw] -translate-x-1/2 overflow-hidden rounded-3xl border border-sage-200 bg-white/95 p-5 shadow-2xl shadow-forest-900/10 backdrop-blur-xl"
             >
               <div className="pointer-events-none absolute -right-10 -top-16 h-40 w-40 rounded-full bg-gold-300/30 blur-3xl" />
               <div className="pointer-events-none absolute -bottom-16 -left-10 h-40 w-40 rounded-full bg-forest-300/30 blur-3xl" />
