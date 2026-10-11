@@ -1,34 +1,48 @@
-import React from 'react';
-import Image from 'next/image';
+"use client";
+
+import { useRef } from "react";
+import Image from "next/image";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const AboutSection = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+  const bgY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
+
   return (
     <section
-      className="text-1 d-flex flex-column justify-content-center align-items-center text-center"
-      style={{
-        backgroundImage: 'url(/images/About-txt1.jpg)',
-        backgroundPosition: 'center',
-        backgroundSize: 'cover',
-        height: '60vh',
-        backgroundRepeat: 'no-repeat'
-      }}
+      ref={sectionRef}
+      className="relative overflow-hidden py-24 text-center text-white"
     >
-      <div className="logo mb-4">
-        <Image
-          src="/images/Icon-logo-1-removebg-preview.png"
-          alt="Logo"
-          width={100}  // Adjust the width as needed
-          height={100} // Adjust the height as needed
-        />
-      </div>
-      <div className="container-xxl">
-        <div className="logo-text">
-          <p>
-            Our doctors recommend the best THC to CBD ratio to look for in a marijuana strain and suggest the
-            recommended dosage and route.
-          </p>
+      <motion.div style={{ y: bgY }} className="absolute inset-[-10%]">
+        <Image src="/images/About-txt1.jpg" alt="" fill sizes="100vw" className="object-cover" />
+      </motion.div>
+      <div className="absolute inset-0 bg-forest-950/70" />
+
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.7 }}
+        className="container-custom relative"
+      >
+        <div className="mx-auto mb-6 h-16 w-16">
+          <Image
+            src="/images/Icon-logo-1-removebg-preview.png"
+            alt="Phytogenic logo"
+            width={64}
+            height={64}
+            className="mx-auto"
+          />
         </div>
-      </div>
+        <p className="mx-auto max-w-2xl text-lg font-medium leading-relaxed sm:text-xl">
+          Our doctors recommend the best THC to CBD ratio to look for in a
+          marijuana strain and suggest the recommended dosage and route.
+        </p>
+      </motion.div>
     </section>
   );
 };

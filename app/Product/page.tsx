@@ -1,54 +1,59 @@
-'use client';
-import React, { useEffect, useState } from "react";
-import styles from "../../lib/styles/Home.module.css";
-import { getCollections } from "@/lib/actions/actions";
-import Link from "next/link";
+"use client";
+
 import Image from "next/image";
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
+import Link from "next/link";
+import { Leaf } from "lucide-react";
+import { useCollections } from "@/lib/queries";
 
 const Category = () => {
-  const [collections, setCollections] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchCollections = async () => {
-      const fetchedCollections = await getCollections();
-      setCollections(fetchedCollections.reverse());
-      setLoading(false);
-    };
-    fetchCollections();
-  }, []);
+  const { data: collections, isLoading } = useCollections();
 
   return (
-    <section className={styles.slider}>
-      <div className={styles.container}>
-        <div className={styles.category}>
-          {loading ? (
-            Array.from({ length: 4 }).map((_, index) => (
-              <div key={index} className="nana" style={{ margin: '20px', textDecoration: 'none' }}>
-                <div className={styles.image}>
-                  <Skeleton height={200} />
-                </div>
-                <h3 className={styles.catName}><Skeleton width={100} /></h3>
-              </div>
-            ))
-          ) : (
-            collections.map((collection: CollectionType, index: number) => (
-              <Link href={`/Product/${collection._id}`} key={collection._id} className="nana" style={{textDecoration:'none'}}>
-                <div className={styles.image}>
+    <section className="bg-cream-50 py-16 sm:py-20">
+      <div className="container-custom">
+        <div className="mb-10 flex items-end justify-between gap-4">
+          <div>
+            <span className="section-eyebrow">
+              <Leaf className="h-3.5 w-3.5" /> Browse by Collection
+            </span>
+            <h2 className="section-heading mt-4">Our Product Collections</h2>
+          </div>
+        </div>
+
+        <div className="no-scrollbar -mx-5 flex gap-5 overflow-x-auto px-5 pb-2">
+          {isLoading
+            ? Array.from({ length: 6 }).map((_, i) => (
+                <div
+                  key={i}
+                  className="skeleton-shimmer h-56 w-48 flex-shrink-0 rounded-3xl bg-sage-100 sm:w-56"
+                />
+              ))
+            : collections?.map((collection) => (
+                <Link
+                  key={collection._id}
+                  href={`/Product/${collection._id}`}
+                  className="group relative h-56 w-48 flex-shrink-0 overflow-hidden rounded-3xl shadow-md transition-transform duration-300 hover:-translate-y-1 sm:w-56"
+                >
                   <Image
                     src={collection.image}
                     alt={collection.title}
-                    width={350}
-                    height={200}
-                    className="rounded-lg cursor-pointer"
+                    fill
+                    sizes="224px"
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                </div>
-                <h3 className={styles.catName}>{collection.title}</h3>
-              </Link>
-            ))
-          )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-forest-950/85 via-forest-950/10 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 p-4">
+                    <h3 className="font-display text-base font-semibold text-white">
+                      {collection.title}
+                    </h3>
+                    {Array.isArray(collection.products) && (
+                      <p className="text-xs text-sage-200">
+                        {collection.products.length} products
+                      </p>
+                    )}
+                  </div>
+                </Link>
+              ))}
         </div>
       </div>
     </section>

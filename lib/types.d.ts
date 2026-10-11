@@ -1,22 +1,26 @@
-type CollectionType = {
+type CollectionRef = {
     _id: string;
     title: string;
-    products: number;
-    image: string;
   };
-  
+
+  type CollectionType = {
+    _id: string;
+    title: string;
+    description?: string;
+    products: string[] | ProductType[];
+    image: string;
+    createdAt?: string;
+    updatedAt?: string;
+  };
+
   type ProductType = {
     _id: string;
     title: string;
     description: string;
-    media: [string];
+    media: string[];
     category: string;
-    collections: [string];
-    tags: [string];
-    price: number;
-    cost: number;
-    sizes: [string];
-    colors: [string];
+    collections: CollectionRef[];
+    tags: string[];
     createdAt: string;
     updatedAt: string;
   };

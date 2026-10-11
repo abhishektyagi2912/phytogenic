@@ -1,104 +1,67 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { getProducts } from "@/lib/actions/actions";
+
 import Link from "next/link";
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
+import { motion } from "framer-motion";
+import { Sparkles } from "lucide-react";
+import ProductCard from "@/components/ProductCard";
+import ProductCardSkeleton from "@/components/ProductCardSkeleton";
+import { useProducts } from "@/lib/queries";
+
+const grid = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.1 } },
+};
+
+const card = {
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
 
 const ProductSection = () => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      const fetchedProducts = await getProducts();
-      setProducts(fetchedProducts);
-      setLoading(false);
-    };
-    fetchProducts();
-  }, []);
-
-  const topProducts = products.slice(0, 4);
+  const { data: products, isLoading } = useProducts();
+  const topProducts = products?.slice(0, 4) ?? [];
 
   return (
-    <section>
-      <div className="container-xxl product-items">
-        <div className="text-center my-4">
-          <h4 className="h4tag">Popular Products</h4>
-          <p className="ptag">
-            Phytorelief (Chamomile, Aloevera and Ginger Extract) makes you
-            fomulation non irritants, <br />
-            Phytosun (Nano Zinc for Mineral Sunscreen).
+    <section className="bg-sage-50 py-16 sm:py-20">
+      <div className="container-custom">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+          className="mx-auto max-w-2xl text-center"
+        >
+          <span className="section-eyebrow">
+            <Sparkles className="h-3.5 w-3.5" /> Popular Products
+          </span>
+          <h2 className="section-heading mt-4">Trusted by Formulators</h2>
+          <p className="mt-3 text-sm text-sage-600 sm:text-base">
+            Phytorelief (Chamomile, Aloevera and Ginger Extract) makes your
+            formulation non-irritant, and Phytosun (Nano Zinc) delivers
+            mineral sunscreen protection.
           </p>
-        </div>
-        <div className="row">
-          {loading
-            ? Array.from({ length: 4 }).map((_, index) => (
-                <div className="col-md-3 mt-3 px-2" key={index}>
-                  <div className="main-part">
-                    <div className="prod-image p-3">
-                      <Skeleton height={200} width={200} />
-                      <p className="text-center mt-2">
-                        <Skeleton width={100} />
-                      </p>
-                    </div>
-                    <div className="prod-name p-3 text-center bg-custom">
-                      <p className="font-weight-bold">
-                        <Skeleton width={100} />
-                      </p>
-                      <Skeleton width={80} height={30} />
-                    </div>
-                  </div>
-                </div>
-              ))
-            : topProducts.map((product: ProductType) => (
-                <div className="col-md-3 mb-4" key={product._id}>
-                  <div className="card h-100 border-0">
-                    <div
-                      className="card-img-top d-flex justify-content-center align-items-center"
-                      style={{
-                        height: "230px",
-                        overflow: "hidden",
-                        position: "relative",
-                      }}
-                    >
-                      <img
-                        src={product.media[0]}
-                        alt={product.title}
-                        className="img-fluid"
-                        style={{
-                          width: "100%",
-                          height: "100%",
-                          objectFit: "cover",
-                          borderRadius: "10px",
-                          transition: "transform 0.5s",
-                        }}
-                      />
-                    </div>
-                    <div className="card-body d-flex flex-column">
-                      <h5 className="card-title text-center mb-4">
-                        {product.title}
-                      </h5>
-                      <div className="mt-auto text-center">
-                        <Link
-                          href="/Contact"
-                          className="btn btn-success btn-custom"
-                        >
-                          Contact Us
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+        </motion.div>
+
+        <motion.div
+          variants={grid}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.1 }}
+          className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
+        >
+          {isLoading
+            ? Array.from({ length: 4 }).map((_, i) => <ProductCardSkeleton key={i} />)
+            : topProducts.map((product) => (
+                <motion.div key={product._id} variants={card}>
+                  <ProductCard product={product} />
+                </motion.div>
               ))}
-          <div className="bttn">
-            <Link
-              href="/All"
-              className="btn btn-success btn-custom py-2 px-4 rounded"
-            >
-              View All
-            </Link>
-          </div>
+        </motion.div>
+
+        <div className="mt-12 flex justify-center">
+          <Link href="/All" className="btn-primary">
+            View All Products
+          </Link>
         </div>
       </div>
     </section>

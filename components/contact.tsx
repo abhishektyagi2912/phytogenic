@@ -1,12 +1,11 @@
-import Link from 'next/link'
-import React from 'react'
+import Link from "next/link";
 
 function Contact() {
   return (
-    <Link href="/Contact"style={{textDecoration:'none'}}>
-      <button className="contact-button">Contact</button>
+    <Link href="/Contact" className="btn-secondary">
+      Contact Us
     </Link>
-  )
+  );
 }
 
-export default Contact
+export default Contact;

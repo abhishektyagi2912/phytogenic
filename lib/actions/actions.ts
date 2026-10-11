@@ -1,46 +1,31 @@
-export const getCollections = async () => {
-  const collections = await fetch(
-    `https://admin-dashborad-p.vercel.app/api/collections`
-  );
-  return await collections.json();
+const API_BASE = "https://admin-dashborad-p.vercel.app/api";
+
+async function fetchJson<T>(url: string): Promise<T> {
+  const res = await fetch(url);
+  if (!res.ok) {
+    throw new Error(`Request failed (${res.status}): ${url}`);
+  }
+  return res.json();
+}
+
+export const getCollections = async (): Promise<CollectionType[]> => {
+  return fetchJson<CollectionType[]>(`${API_BASE}/collections`);
 };
 
 export const getCollectionDetails = async (collectionId: string) => {
-  const collection = await fetch(
-    `https://admin-dashborad-p.vercel.app/api/collections/${collectionId}`
+  return fetchJson<CollectionType & { products: ProductType[] }>(
+    `${API_BASE}/collections/${collectionId}`
   );
-  return await collection.json();
 };
 
-export const getProducts = async () => {
-  const products = await fetch(`https://admin-dashborad-p.vercel.app/api/products`);
-  return await products.json();
+export const getProducts = async (): Promise<ProductType[]> => {
+  return fetchJson<ProductType[]>(`${API_BASE}/products`);
 };
 
-// export const getProductDetails = async (productId: string) => {
-//   const product = await fetch(
-//     `${process.env.NEXT_PUBLIC_API_URL}/products/${productId}`
-//   );
-//   return await product.json();
-// };
-
-export const getSearchedProducts = async (query: string) => {
-  const searchedProducts = await fetch(
-    `https://admin-dashborad-p.vercel.app/api/search/${query}`
+export const getSearchedProducts = async (
+  query: string
+): Promise<ProductType[]> => {
+  return fetchJson<ProductType[]>(
+    `${API_BASE}/search/${encodeURIComponent(query)}`
   );
-  return await searchedProducts.json();
 };
-
-// export const getOrders = async (customerId: string) => {
-//   const orders = await fetch(
-//     `${process.env.NEXT_PUBLIC_API_URL}/orders/customers/${customerId}`
-//   );
-//   return await orders.json();
-// };
-
-// export const getRelatedProducts = async (productId: string) => {
-//   const relatedProducts = await fetch(
-//     `${process.env.NEXT_PUBLIC_API_URL}/products/${productId}/related`
-//   );
-//   return await relatedProducts.json();
-// };
